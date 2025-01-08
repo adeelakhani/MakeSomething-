@@ -1,11 +1,11 @@
-import './App.css'
+import Header from '../components/Header'
+import Body from '../components/Body.jsx'
 
-function App() {
+export default function App() {
   return (
     <>
-      
+      <Header /> 
+      <Body />
     </>
   )
 }
-
-export default App
