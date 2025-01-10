@@ -1,12 +1,12 @@
-import React, {useState} from "react";
+import {useState} from "react";
 
 export default function Body()
 {
-    //const ingredients = ["cheese", "bread", "ice cream", "tomato", "lettuce"]; 
     const [ingredients, setIngredients] = useState([]);
     const ingredientsLists = ingredients.map((ingredient) =>(
         <li key = {ingredient}>{ingredient}</li>
     ))
+    let numIngredients = ingredients.length;
     // function handleSubmitting(e) 
     // {
     //     e.preventDefault();
@@ -19,8 +19,9 @@ export default function Body()
     //<form onSubmit={handleSubmitting} className="body">
     function handleSubmitting(formData) 
     {
-        const ingredient = formData.get("ingredient");
-        setIngredients(prev => [...prev, ingredient]);
+        const getIngredient = Object.fromEntries(formData);
+        //  const newIngredient = formData.get("ingredient");
+        setIngredients(prev => [...prev, getIngredient.ingredient]);
 
     }
     return(
@@ -34,9 +35,19 @@ export default function Body()
                 />
                 <button>+ Add Ingredient</button>
             </form>
-            <ul>
+            <section>
+            <h2 className = "ingredientsHeader">Ingredients(so far)</h2>
+            <ul className="ingredientsList">
                 {ingredientsLists}
             </ul>
+            {numIngredients > 3 && 
+            <div className="readyBox">
+                <h1>Ready to submit?</h1>
+                <button>See recipe</button>
+            </div>}
+            
+            </section>
+            
 
         </main>
 )

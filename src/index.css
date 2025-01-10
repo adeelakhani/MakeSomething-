@@ -6,6 +6,18 @@ body {
     font-family: Inter, sans-serif;
     background: #FAFAF8;
 }
+.ingredientsHeader{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 3rem;
+    font-weight: 200;
+    font-size: 40px;
+}
+.ingredientsList{
+    margin-left: 3rem;
+    font-size: 25px;
+    font-weight: 100;
+}
 .body{
     display: flex;
     justify-content: center;
@@ -16,14 +28,46 @@ body {
     display: flex;
     border: 1px solid #D1D5DB;
     border-radius: 0.5rem;
-    width: 400px;
-    height: 50px;
+    width: 600px;
+    height: 70px;
+    font-size: larger;
+    font-weight: 200;
     padding: 0.2rem 0.8rem;
     min-width: 150px;
     max-width: 400px;
 }
+.readyBox{
+    font-size: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    background-color: rgb(247, 238, 228);
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 8rem;
+    border-radius: 0.5rem;
+}
+.readyBox > button {
+    font-weight: 200;
+    margin-right: 5%;
+    width: 250px;
+    height: 60px;
+    border-radius: 0.5rem;
+    background: rgb(242, 147, 63);
+    color: black;
+    font-size: large;
+    cursor: pointer;
+    border: none;  /* Removes any border */
+}
+
+.readyBox > h1{
+    font-size: 35px;
+    font-weight: 200;
+    margin-left: 5%;
+}
 .body > button{
-    height: 50px;
+    height: 70px;
     width: 200px;
     margin: 0.5rem;
     padding: 1rem;
@@ -42,17 +86,18 @@ body {
     justify-content: center;
     background-color: rgb(251, 247, 243);
     width: 100%;     /* Ensures full width */
-    height: 100px;   /* Fixed height for the header */
+    height:150px;   /* Fixed height for the header */
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
 }
 
 .title {
     font-weight: 350;
+    font-size: 60px;
 }
 
 
 .icon {
     padding: 0.3rem;
-    font-size: 50px;
+    font-size: 80px;
     margin-bottom: 0.2rem;
 }
