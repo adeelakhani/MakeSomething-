@@ -1,4 +1,7 @@
 import { useState } from "react";
+import IngredientsList from "./IngredientsList";
+import Recipe from "./Recipe";
+
 
 export default function Body() {
   const [ingredients, setIngredients] = useState([]);
@@ -26,18 +29,12 @@ export default function Body() {
         <button>+ Add Ingredient</button>
       </form>
       <section>
-        <h2 className="ingredientsHeader">Ingredients(so far)</h2>
-        <ul className="ingredientsList">{ingredientsLists}</ul>
-        {numIngredients > 3 && (
-          <div className="readyBox">
-            <h1>Ready to submit?</h1>
-            <button onClick={showRecipe}>See recipe</button>
-          </div>
-        )}
+        <IngredientsList ingredientsLists={ingredientsLists} numIngredients={numIngredients} showRecipe={showRecipe} />
       </section>
-      {isShown && <section>
-        
-      </section>}
+      <section>
+        <Recipe isShown={isShown} />
+      </section>
+      
       
     </main>
   );
