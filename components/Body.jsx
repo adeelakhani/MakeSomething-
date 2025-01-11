@@ -5,7 +5,8 @@ import axios from "axios";
 
 export default function Body() {
   const [ingredients, setIngredients] = useState([]);
-  const [isShown, setShown] = useState(false);
+  const [recipe, setRecipe] = useState("");
+
   const ingredientsLists = ingredients.map((ingredient) => (
     <li key={ingredient}>{ingredient}</li>
   ));
@@ -15,7 +16,8 @@ export default function Body() {
     setIngredients((prev) => [...prev, getIngredient.ingredient]);
   }
   async function showRecipe(){
-    setShown(true)
+    const getRecipe = await axios.post("http://localhost:3000/api/getrecipe", {ingredients});
+    setRecipe(getRecipe.data.recipe);
   }
   return (
     <main>
@@ -32,7 +34,7 @@ export default function Body() {
         <IngredientsList ingredientsLists={ingredientsLists} numIngredients={numIngredients} showRecipe={showRecipe} />
       </section>
       <section>
-        <Recipe isShown={isShown} />
+        <Recipe recipe={recipe} />
       </section>
       
       
