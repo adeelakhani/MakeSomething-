@@ -93,6 +93,10 @@ body {
 .title {
     font-weight: 350;
     font-size: 60px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b, #6a11cb, #2575fc); /* Gradient colors */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 
@@ -100,4 +104,13 @@ body {
     padding: 0.3rem;
     font-size: 80px;
     margin-bottom: 0.2rem;
+}
+
+.recipe-container{
+    color: #475467;
+    line-height: 28px;
+    font-size: 1.125rem;
+    font-weight: 400;
+    margin-left: 2rem;
+    margin-bottom: 6rem;
 }

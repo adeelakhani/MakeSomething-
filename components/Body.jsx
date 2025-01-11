@@ -19,6 +19,11 @@ export default function Body() {
     const getRecipe = await axios.post("http://localhost:3000/api/getrecipe", {ingredients});
     setRecipe(getRecipe.data.recipe);
   }
+  function reset(e){
+    e.preventDefault();
+    setIngredients([]);
+    setRecipe("");
+  }
   return (
     <main>
       <form action={handleSubmitting} className="body">
@@ -29,11 +34,13 @@ export default function Body() {
           placeholder="e.g. cheese"
         />
         <button>+ Add Ingredient</button>
+        <button onClick={reset}>Reset</button>
       </form>
       <section>
-        <IngredientsList ingredientsLists={ingredientsLists} numIngredients={numIngredients} showRecipe={showRecipe} />
+        <h2 className="ingredientsHeader">Ingredients(so far)</h2>
+        {ingredients.length > 0 && <IngredientsList ingredientsLists={ingredientsLists} numIngredients={numIngredients} showRecipe={showRecipe} />}
       </section>
-      <section>
+      <section aria-live="polite">
         <Recipe recipe={recipe} />
       </section>
       

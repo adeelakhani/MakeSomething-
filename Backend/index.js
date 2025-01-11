@@ -17,8 +17,7 @@ a user has. You will suggest a recipe that the user can make with all or some of
 user has depending on what is best. It is not neccessary to use every ingredient. You can also suggest
 additional ingredients that the user may want to go get for the recipe to be better but please try to 
 not include too many extra ingredients, and none best case scenario. Please format your response in
-markdown and in a way that is easy to render on a webpage. A nice
-elegent response that looks amazing on a webpage!`;
+markdown and in a way that is easy to render on a webpage. Remember: format in MARKDOWN`;
 
 const anthropic = new Anthropic({
   apiKey: API_KEY,
