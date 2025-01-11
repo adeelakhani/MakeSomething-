@@ -1,7 +1,7 @@
 import { useState } from "react";
 import IngredientsList from "./IngredientsList";
 import Recipe from "./Recipe";
-
+import axios from "axios";
 
 export default function Body() {
   const [ingredients, setIngredients] = useState([]);
@@ -14,7 +14,7 @@ export default function Body() {
     const getIngredient = Object.fromEntries(formData);
     setIngredients((prev) => [...prev, getIngredient.ingredient]);
   }
-  function showRecipe(){
+  async function showRecipe(){
     setShown(true)
   }
   return (
