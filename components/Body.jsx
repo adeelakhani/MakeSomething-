@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import IngredientsList from "./IngredientsList";
 import Recipe from "./Recipe";
 import axios from "axios";
@@ -6,7 +6,14 @@ import axios from "axios";
 export default function Body() {
   const [ingredients, setIngredients] = useState([]);
   const [recipe, setRecipe] = useState("");
+  const scrollSection = useRef(null);
 
+
+  useEffect(() => {
+    if(recipe && scrollSection.current){
+        scrollSection.current.scrollIntoView({behavior: "smooth"});
+    }
+  },[recipe]);
   const ingredientsLists = ingredients.map((ingredient) => (
     <li key={ingredient}>{ingredient}</li>
   ));
@@ -38,7 +45,7 @@ export default function Body() {
       </form>
       <section>
         <h2 className="ingredientsHeader">Ingredients(so far)</h2>
-        {ingredients.length > 0 && <IngredientsList ingredientsLists={ingredientsLists} numIngredients={numIngredients} showRecipe={showRecipe} />}
+        <IngredientsList ref={scrollSection} ingredientsLists={ingredientsLists} numIngredients={numIngredients} showRecipe={showRecipe} />
       </section>
       <section aria-live="polite">
         <Recipe recipe={recipe} />
